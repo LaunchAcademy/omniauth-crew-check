@@ -1,20 +1,35 @@
 # CrewCheck
 
+CrewCheck helps you utilize github teams to correlate users with roles.
+
 ```ruby
 CrewCheck.configure do |c|
   c.role_map = {
-    'admins' => ['org name/the-super-users'],
-    'moderators' => ['org name/the-regular-joes']
+    'admin' => ['acme/the-super-users'],
+    'moderators' => ['acme/the-regular-joes']
   }
 
-  # OR
+  # OR (use a proc)
   c.role_map ->{{
-    'admins' => Team.all.map{|i| 'org name/' + i.github_team_name }
+    'admin' => Team.all.map{|i| 'acme/' + i.github_team_name }
   }}
 
   c.authorize_non_members = true
   c.require_authorized_team = true
 end
+```
+
+For a user that is part of the 'acme' github organization and is exclusively a github team member of 'the-super-users' OmniAuth will return data like:
+
+```ruby
+env['omniauth.auth'] = {
+  :provider => 'crew_check',
+  # ...
+  :extra => {
+    :teams => ['acme/the-super-users'],
+    :roles => ['admin']
+  }
+}
 ```
 
 ## Installation
