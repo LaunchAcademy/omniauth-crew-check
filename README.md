@@ -2,17 +2,16 @@
 
 ```ruby
 CrewCheck.configure do |c|
-  c.team_map = {
-    'admins' => ['the-super-users'],
-    'moderators' => ['the-regular-joes']
+  c.role_map = {
+    'admins' => ['org name/the-super-users'],
+    'moderators' => ['org name/the-regular-joes']
   }
 
   # OR
-  c.team_map ->{{
-    'admins' => Team.all.map{|i| i.github_team_name }
+  c.role_map ->{{
+    'admins' => Team.all.map{|i| 'org name/' + i.github_team_name }
   }}
 
-  c.organization_name = 'launch_academy'
   c.authorize_non_members = true
   c.require_authorized_team = true
 end
