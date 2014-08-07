@@ -1,0 +1,94 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/user/teams
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3+json
+      User-Agent:
+      - Octokit Ruby Gem 3.2.0
+      Authorization:
+      - token <GITHUB_API_KEY>
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 07 Aug 2014 18:51:46 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 200 OK
+      X-Ratelimit-Limit:
+      - '5000'
+      X-Ratelimit-Remaining:
+      - '4945'
+      X-Ratelimit-Reset:
+      - '1407438144'
+      Cache-Control:
+      - private, max-age=60, s-maxage=60
+      Etag:
+      - '"08401136adb11453d2fa2338facff580"'
+      X-Oauth-Scopes:
+      - gist, repo, user
+      X-Accepted-Oauth-Scopes:
+      - admin:org, read:org, repo, user, write:org
+      Vary:
+      - Accept, Authorization, Cookie, X-GitHub-OTP
+      - Accept-Encoding
+      X-Github-Media-Type:
+      - github.v3; format=json
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - default-src 'none'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - ETag, Link, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Reset,
+        X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
+      Access-Control-Allow-Origin:
+      - "*"
+      X-Github-Request-Id:
+      - 32F17FD1:5530:726247D:53E3CAC1
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains
+      X-Content-Type-Options:
+      - nosniff
+      X-Served-By:
+      - 6d7de9e645814cac34ea2a8d72ba3141
+    body:
+      encoding: UTF-8
+      string: '[{"name":"Owners","id":340003,"slug":"owners","permission":"admin","url":"https://api.github.com/teams/340003","members_url":"https://api.github.com/teams/340003/members{/member}","repositories_url":"https://api.github.com/teams/340003/repos","members_count":11,"repos_count":190,"organization":{"login":"LaunchAcademy","id":3612691,"url":"https://api.github.com/orgs/LaunchAcademy","repos_url":"https://api.github.com/orgs/LaunchAcademy/repos","events_url":"https://api.github.com/orgs/LaunchAcademy/events","members_url":"https://api.github.com/orgs/LaunchAcademy/members{/member}","public_members_url":"https://api.github.com/orgs/LaunchAcademy/public_members{/member}","avatar_url":"https://avatars.githubusercontent.com/u/3612691?v=2","name":"Launch
+        Academy","company":null,"blog":"http://launchacademy.com","location":"Boston,
+        MA","email":"hello@launchacademy.com","public_repos":89,"public_gists":0,"followers":0,"following":0,"html_url":"https://github.com/LaunchAcademy","created_at":"2013-02-16T18:16:02Z","updated_at":"2014-08-07T18:35:21Z","type":"Organization"}},{"name":"Bot","id":345064,"slug":"bot","permission":"admin","url":"https://api.github.com/teams/345064","members_url":"https://api.github.com/teams/345064/members{/member}","repositories_url":"https://api.github.com/teams/345064/repos","members_count":1,"repos_count":4,"organization":{"login":"LaunchAcademy","id":3612691,"url":"https://api.github.com/orgs/LaunchAcademy","repos_url":"https://api.github.com/orgs/LaunchAcademy/repos","events_url":"https://api.github.com/orgs/LaunchAcademy/events","members_url":"https://api.github.com/orgs/LaunchAcademy/members{/member}","public_members_url":"https://api.github.com/orgs/LaunchAcademy/public_members{/member}","avatar_url":"https://avatars.githubusercontent.com/u/3612691?v=2","name":"Launch
+        Academy","company":null,"blog":"http://launchacademy.com","location":"Boston,
+        MA","email":"hello@launchacademy.com","public_repos":89,"public_gists":0,"followers":0,"following":0,"html_url":"https://github.com/LaunchAcademy","created_at":"2013-02-16T18:16:02Z","updated_at":"2014-08-07T18:35:21Z","type":"Organization"}},{"name":"latest","id":458370,"slug":"latest","permission":"admin","url":"https://api.github.com/teams/458370","members_url":"https://api.github.com/teams/458370/members{/member}","repositories_url":"https://api.github.com/teams/458370/repos","members_count":1,"repos_count":0,"organization":{"login":"LaunchAcademyEDU","id":5073731,"url":"https://api.github.com/orgs/LaunchAcademyEDU","repos_url":"https://api.github.com/orgs/LaunchAcademyEDU/repos","events_url":"https://api.github.com/orgs/LaunchAcademyEDU/events","members_url":"https://api.github.com/orgs/LaunchAcademyEDU/members{/member}","public_members_url":"https://api.github.com/orgs/LaunchAcademyEDU/public_members{/member}","avatar_url":"https://avatars.githubusercontent.com/u/5073731?v=2","name":"Launch
+        Academy","company":null,"blog":"http://www.launchacademy.com","location":"Boston,
+        MA","email":"hello@launchacademy.com","public_repos":9,"public_gists":0,"followers":0,"following":0,"html_url":"https://github.com/LaunchAcademyEDU","created_at":"2013-07-23T14:22:32Z","updated_at":"2014-06-10T20:16:56Z","type":"Organization"}},{"name":"winter-2013","id":488810,"slug":"winter-2013","permission":"push","url":"https://api.github.com/teams/488810","members_url":"https://api.github.com/teams/488810/members{/member}","repositories_url":"https://api.github.com/teams/488810/repos","members_count":48,"repos_count":8,"organization":{"login":"LaunchAcademy","id":3612691,"url":"https://api.github.com/orgs/LaunchAcademy","repos_url":"https://api.github.com/orgs/LaunchAcademy/repos","events_url":"https://api.github.com/orgs/LaunchAcademy/events","members_url":"https://api.github.com/orgs/LaunchAcademy/members{/member}","public_members_url":"https://api.github.com/orgs/LaunchAcademy/public_members{/member}","avatar_url":"https://avatars.githubusercontent.com/u/3612691?v=2","name":"Launch
+        Academy","company":null,"blog":"http://launchacademy.com","location":"Boston,
+        MA","email":"hello@launchacademy.com","public_repos":89,"public_gists":0,"followers":0,"following":0,"html_url":"https://github.com/LaunchAcademy","created_at":"2013-02-16T18:16:02Z","updated_at":"2014-08-07T18:35:21Z","type":"Organization"}},{"name":"spring-2014","id":574495,"slug":"spring-2014","permission":"push","url":"https://api.github.com/teams/574495","members_url":"https://api.github.com/teams/574495/members{/member}","repositories_url":"https://api.github.com/teams/574495/repos","members_count":43,"repos_count":37,"organization":{"login":"LaunchAcademy","id":3612691,"url":"https://api.github.com/orgs/LaunchAcademy","repos_url":"https://api.github.com/orgs/LaunchAcademy/repos","events_url":"https://api.github.com/orgs/LaunchAcademy/events","members_url":"https://api.github.com/orgs/LaunchAcademy/members{/member}","public_members_url":"https://api.github.com/orgs/LaunchAcademy/public_members{/member}","avatar_url":"https://avatars.githubusercontent.com/u/3612691?v=2","name":"Launch
+        Academy","company":null,"blog":"http://launchacademy.com","location":"Boston,
+        MA","email":"hello@launchacademy.com","public_repos":89,"public_gists":0,"followers":0,"following":0,"html_url":"https://github.com/LaunchAcademy","created_at":"2013-02-16T18:16:02Z","updated_at":"2014-08-07T18:35:21Z","type":"Organization"}},{"name":"summer-2014","id":656047,"slug":"summer-2014","permission":"push","url":"https://api.github.com/teams/656047","members_url":"https://api.github.com/teams/656047/members{/member}","repositories_url":"https://api.github.com/teams/656047/repos","members_count":51,"repos_count":2,"organization":{"login":"LaunchAcademy","id":3612691,"url":"https://api.github.com/orgs/LaunchAcademy","repos_url":"https://api.github.com/orgs/LaunchAcademy/repos","events_url":"https://api.github.com/orgs/LaunchAcademy/events","members_url":"https://api.github.com/orgs/LaunchAcademy/members{/member}","public_members_url":"https://api.github.com/orgs/LaunchAcademy/public_members{/member}","avatar_url":"https://avatars.githubusercontent.com/u/3612691?v=2","name":"Launch
+        Academy","company":null,"blog":"http://launchacademy.com","location":"Boston,
+        MA","email":"hello@launchacademy.com","public_repos":89,"public_gists":0,"followers":0,"following":0,"html_url":"https://github.com/LaunchAcademy","created_at":"2013-02-16T18:16:02Z","updated_at":"2014-08-07T18:35:21Z","type":"Organization"}},{"name":"spring-2014-read-only","id":744182,"slug":"spring-2014-read-only","permission":"pull","url":"https://api.github.com/teams/744182","members_url":"https://api.github.com/teams/744182/members{/member}","repositories_url":"https://api.github.com/teams/744182/repos","members_count":45,"repos_count":156,"organization":{"login":"LaunchAcademy","id":3612691,"url":"https://api.github.com/orgs/LaunchAcademy","repos_url":"https://api.github.com/orgs/LaunchAcademy/repos","events_url":"https://api.github.com/orgs/LaunchAcademy/events","members_url":"https://api.github.com/orgs/LaunchAcademy/members{/member}","public_members_url":"https://api.github.com/orgs/LaunchAcademy/public_members{/member}","avatar_url":"https://avatars.githubusercontent.com/u/3612691?v=2","name":"Launch
+        Academy","company":null,"blog":"http://launchacademy.com","location":"Boston,
+        MA","email":"hello@launchacademy.com","public_repos":89,"public_gists":0,"followers":0,"following":0,"html_url":"https://github.com/LaunchAcademy","created_at":"2013-02-16T18:16:02Z","updated_at":"2014-08-07T18:35:21Z","type":"Organization"}},{"name":"capital-one-preview","id":942647,"slug":"capital-one-preview","permission":"pull","url":"https://api.github.com/teams/942647","members_url":"https://api.github.com/teams/942647/members{/member}","repositories_url":"https://api.github.com/teams/942647/repos","members_count":10,"repos_count":0,"organization":{"login":"LaunchAcademy","id":3612691,"url":"https://api.github.com/orgs/LaunchAcademy","repos_url":"https://api.github.com/orgs/LaunchAcademy/repos","events_url":"https://api.github.com/orgs/LaunchAcademy/events","members_url":"https://api.github.com/orgs/LaunchAcademy/members{/member}","public_members_url":"https://api.github.com/orgs/LaunchAcademy/public_members{/member}","avatar_url":"https://avatars.githubusercontent.com/u/3612691?v=2","name":"Launch
+        Academy","company":null,"blog":"http://launchacademy.com","location":"Boston,
+        MA","email":"hello@launchacademy.com","public_repos":89,"public_gists":0,"followers":0,"following":0,"html_url":"https://github.com/LaunchAcademy","created_at":"2013-02-16T18:16:02Z","updated_at":"2014-08-07T18:35:21Z","type":"Organization"}}]'
+    http_version: 
+  recorded_at: Thu, 07 Aug 2014 18:51:46 GMT
+recorded_with: VCR 2.9.2

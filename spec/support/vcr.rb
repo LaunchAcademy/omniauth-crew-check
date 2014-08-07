@@ -5,5 +5,5 @@ VCR.configure do |c|
   c.hook_into :webmock # or :fakeweb
   c.default_cassette_options = { :record => :new_episodes }
   c.configure_rspec_metadata!
-  c.filter_sensitive_data('<GITHUB_API_KEY>') { ENV['GITHUB_API_KEY'] }
+  c.filter_sensitive_data('<GITHUB_API_KEY>') { ENV['GITHUB_TOKEN'] }
 end
