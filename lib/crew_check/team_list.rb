@@ -12,6 +12,12 @@ module CrewCheck
       end
     end
 
+    def shorthand_names
+      @teams.map do |team|
+        team.shorthand_name
+      end
+    end
+
     class << self
       def fetch(token)
         client = Octokit::Client.new(access_token: token)

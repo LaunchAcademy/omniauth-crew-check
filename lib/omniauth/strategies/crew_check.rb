@@ -3,11 +3,13 @@ require 'omniauth-github'
 module OmniAuth
   module Strategies
     class CrewCheck < OmniAuth::Strategies::GitHub
+      option :role_map, {}
+
       extra do
         {
           :raw_info => raw_info,
           :teams => teams,
-          :crew_check_roles => roles
+          :roles => roles
         }
       end
 
@@ -17,7 +19,9 @@ module OmniAuth
       end
 
       def roles
-        []
+        @roles ||= ::CrewCheck::RoleDetermination.new(
+          teams.shorthand_names,
+          options.role_map).roles
       end
 
       def gh_token

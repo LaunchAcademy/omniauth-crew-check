@@ -16,8 +16,18 @@ describe OmniAuth::Strategies::CrewCheck, vcr: true do
   end
 
 
+  let(:mock_team_list) do
+    mock('Team List', :shorthand_names => ['launchacademy/experience engineers'])
+  end
+
   let(:strategy) do
-    OmniAuth::Strategies::CrewCheck.new('github key', 'github secret')
+    OmniAuth::Strategies::CrewCheck.new('github key', 'github secret', {
+      :role_map => {
+        'admin' => ['launchacademy/experience engineers']
+      }
+    }).tap do |s|
+      s.stubs(:teams).returns(mock_team_list)
+    end
   end
 
   before(:each) do
@@ -28,7 +38,7 @@ describe OmniAuth::Strategies::CrewCheck, vcr: true do
     expect(strategy.extra[:teams]).to_not be_nil
   end
 
-  it 'provides an unempty list of teams' do
-    expect(strategy.extra[:teams]).to_not be_empty
+  it 'provides an unempty list of roles' do
+    expect(strategy.extra[:roles]).to eq(['admin'])
   end
 end
