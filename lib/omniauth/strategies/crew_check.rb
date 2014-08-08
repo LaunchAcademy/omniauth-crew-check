@@ -19,7 +19,7 @@ module OmniAuth
       end
 
       def roles
-        @roles ||= ::CrewCheck::RoleDetermination.new(
+        ::CrewCheck::RoleDetermination.new(
           teams.shorthand_names,
           options.role_map).roles
       end

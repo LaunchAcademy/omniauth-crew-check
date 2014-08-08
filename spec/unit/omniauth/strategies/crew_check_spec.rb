@@ -20,18 +20,19 @@ describe OmniAuth::Strategies::CrewCheck, vcr: true do
     mock('Team List', :shorthand_names => ['launchacademy/experience engineers'])
   end
 
-  let(:strategy) do
-    OmniAuth::Strategies::CrewCheck.new('github key', 'github secret', {
-      :role_map => {
-        'admin' => ['launchacademy/experience engineers']
-      }
-    }).tap do |s|
-      s.stubs(:teams).returns(mock_team_list)
-    end
+  let(:role_map) do
+    {
+      'admin' => ['launchacademy/experience engineers']
+    }
   end
 
-  before(:each) do
-    strategy.stubs(:access_token).returns(access_token)
+  let(:strategy) do
+    OmniAuth::Strategies::CrewCheck.new('github key', 'github secret',
+      :role_map => role_map).tap do |s|
+
+      s.stubs(:teams).returns(mock_team_list)
+      s.stubs(:access_token).returns(access_token)
+    end
   end
 
   it 'provides a list of teams' do
@@ -40,5 +41,25 @@ describe OmniAuth::Strategies::CrewCheck, vcr: true do
 
   it 'provides an unempty list of roles' do
     expect(strategy.extra[:roles]).to eq(['admin'])
+  end
+
+
+  context 'proc support' do
+    let(:strategy) do
+      the_proc = ->{{
+        'admins' => 'launchacademy/experience engineers'
+      }}
+
+      OmniAuth::Strategies::CrewCheck.new('github key', 'github secret',
+        :role_map => role_map).tap do |s|
+
+        s.stubs(:teams).returns(mock_team_list)
+        s.stubs(:access_token).returns(access_token)
+      end
+    end
+
+    it 'allows a proc for the role map' do
+      expect(strategy.extra[:roles]).to eq(['admin'])
+    end
   end
 end
