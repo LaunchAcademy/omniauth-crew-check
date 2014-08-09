@@ -4,6 +4,7 @@ module OmniAuth
   module Strategies
     class CrewCheck < OmniAuth::Strategies::GitHub
       option :role_map, {}
+      option :role_required, true
 
       extra do
         {
@@ -11,6 +12,14 @@ module OmniAuth
           :teams => teams,
           :roles => roles
         }
+      end
+
+      def callback_phase
+        if options.role_required && roles.empty?
+          fail!(:invalid_credentials)
+        else
+          super
+        end
       end
 
       protected

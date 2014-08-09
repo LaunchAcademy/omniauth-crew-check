@@ -3,20 +3,21 @@
 CrewCheck helps you utilize github teams to correlate users with roles.
 
 ```ruby
-CrewCheck.configure do |c|
-  c.role_map = {
+OmniAuth::Strategies::CrewCheck.new('github key', 'github secret',
+  :role_map => {
     'admin' => ['acme/the-super-users'],
     'moderators' => ['acme/the-regular-joes']
-  }
+  },
+  :role_required => true)
+```
 
-  # OR (use a proc)
-  c.role_map ->{{
+You can also use a proc for the `role_map` option:
+
+```ruby
+OmniAuth::Strategies::CrewCheck.new('github key', 'github secret',
+  role_map ->{{
     'admin' => Team.all.map{|i| 'acme/' + i.github_team_name }
-  }}
-
-  c.authorize_non_members = true
-  c.require_authorized_team = true
-end
+  }})
 ```
 
 For a user that is part of the 'acme' github organization and is exclusively a github team member of 'the-super-users' OmniAuth will return data like:
@@ -45,10 +46,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install crew_check
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
