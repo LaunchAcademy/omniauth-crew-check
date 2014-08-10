@@ -4,10 +4,10 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'crew_check/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "crew_check"
+  spec.name          = "omniauth-crew-check"
   spec.version       = CrewCheck::VERSION
   spec.authors       = ["Dan Pickett"]
-  spec.email         = ["dan.pickett@launchware.com"]
+  spec.email         = ["dan.pickett@launchacademy.com"]
   spec.summary       = %q{Add authorized roles based on github team name}
   spec.description   = %q{Add authorized roles to omniauth payload based on github team name}
   spec.homepage      = "http://www.launchacademy.com"
