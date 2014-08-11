@@ -28,9 +28,10 @@ module OmniAuth
       end
 
       def roles
+        map = options.role_map.kind_of?(Proc) ? options.role_map.call : options.role_map
         ::CrewCheck::RoleDetermination.new(
           teams.shorthand_names,
-          options.role_map).roles
+          map).roles
       end
 
       def gh_token

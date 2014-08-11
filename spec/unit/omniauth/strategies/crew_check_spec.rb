@@ -21,7 +21,9 @@ describe OmniAuth::Strategies::CrewCheck, vcr: true do
 
 
   let(:mock_team_list) do
-    mock('Team List', :shorthand_names => ['launchacademy/experience engineers'])
+    mock('Team List').tap do |m|
+      m.stubs(:shorthand_names).returns(['launchacademy/experience engineers'])
+    end
   end
 
   let(:role_map) do
@@ -51,11 +53,10 @@ describe OmniAuth::Strategies::CrewCheck, vcr: true do
   context 'proc support' do
     let(:strategy) do
       the_proc = ->{{
-        'admins' => 'launchacademy/experience engineers'
+        'admin' => mock_team_list.shorthand_names
       }}
 
-      OmniAuth::Strategies::CrewCheck.new('github key', 'github secret',
-        :role_map => role_map).tap do |s|
+      OmniAuth::Strategies::CrewCheck.new('github key', 'github secret', :role_map => the_proc).tap do |s|
 
         s.stubs(:teams).returns(mock_team_list)
         s.stubs(:access_token).returns(access_token)
