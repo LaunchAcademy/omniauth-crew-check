@@ -3,6 +3,7 @@ require 'omniauth-github'
 module OmniAuth
   module Strategies
     class CrewCheck < OmniAuth::Strategies::GitHub
+      option :name, :crew_check
       option :role_map, {}
       option :role_required, true
 
