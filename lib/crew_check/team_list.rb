@@ -20,8 +20,10 @@ module CrewCheck
 
     class << self
       def fetch(token)
-        client = Octokit::Client.new(access_token: token)
-        new(client.user_teams)
+        with_octo_auto_pagination do
+          client = Octokit::Client.new(access_token: token)
+          new(client.user_teams)
+        end
       end
     end
 
@@ -31,6 +33,15 @@ module CrewCheck
 
     def empty?
       @teams.size == 0
+    end
+
+    protected
+    def self.with_octo_auto_pagination(&block)
+      old_val = Octokit.auto_paginate
+      Octokit.auto_paginate = true
+      block.call.tap do
+        Octokit.auto_paginate = old_val
+      end
     end
   end
 end
