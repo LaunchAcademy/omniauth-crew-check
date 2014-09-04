@@ -90,6 +90,7 @@ describe OmniAuth::Strategies::CrewCheck, vcr: true do
         s.stubs(:access_token).returns(access_token)
         s.stubs(:request).returns(mock_request)
         s.stubs(:env).returns({})
+        s.stubs(:script_name).returns('')
       end
     end
 

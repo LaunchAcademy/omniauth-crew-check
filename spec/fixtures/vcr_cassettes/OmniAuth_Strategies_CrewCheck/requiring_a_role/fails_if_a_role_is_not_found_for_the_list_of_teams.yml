@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://github.com/login/oauth/access_token
+    body:
+      encoding: UTF-8
+      string: client_id=github+secret&client_secret=&code=&grant_type=authorization_code&redirect_uri=http%3A%2F%2Fexample.org%2Fauth%2Fcrew_check%2Fcallback
+    headers:
+      User-Agent:
+      - Faraday v0.9.0
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Thu, 04 Sep 2014 01:23:53 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Status:
+      - 404 Not Found
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Frame-Options:
+      - deny
+      Content-Security-Policy:
+      - 'default-src *; script-src assets-cdn.github.com www.google-analytics.com
+        collector-cdn.github.com; object-src assets-cdn.github.com; style-src ''self''
+        ''unsafe-inline'' ''unsafe-eval'' assets-cdn.github.com; img-src ''self''
+        data: assets-cdn.github.com identicons.github.com www.google-analytics.com
+        collector.githubapp.com *.githubusercontent.com *.gravatar.com *.wp.com; media-src
+        ''none''; frame-src ''self'' render.githubusercontent.com www.youtube.com
+        player.vimeo.com checkout.paypal.com; font-src assets-cdn.github.com; connect-src
+        ''self'' ghconduit.com:25035 live.github.com uploads.github.com s3.amazonaws.com'
+      Vary:
+      - X-PJAX
+      Cache-Control:
+      - no-cache
+      X-Ua-Compatible:
+      - IE=Edge,chrome=1
+      Set-Cookie:
+      - _gh_sess=eyJzZXNzaW9uX2lkIjoiMzNkOGY3NjBlMDczMTI5Yjg2OTJjYjhjZDBhNDk1YzMiLCJsYXN0X3dyaXRlIjoxNDA5NzkzODMzMjY3fQ%3D%3D--920588f68d43184dbe2744549d04fb025895b64a;
+        path=/; secure; HttpOnly
+      X-Runtime:
+      - '0.032989'
+      X-Github-Request-Id:
+      - 421E9943:0874:37651E53:5407BF29
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Content-Type-Options:
+      - nosniff
+    body:
+      encoding: UTF-8
+      string: '{"error":"Not Found"}'
+    http_version: 
+  recorded_at: Thu, 04 Sep 2014 01:23:53 GMT
+recorded_with: VCR 2.9.2

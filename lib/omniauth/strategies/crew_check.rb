@@ -16,10 +16,9 @@ module OmniAuth
       end
 
       def callback_phase
+        super
         if options.role_required && roles.empty?
           fail!(:invalid_credentials)
-        else
-          super
         end
       end
 
